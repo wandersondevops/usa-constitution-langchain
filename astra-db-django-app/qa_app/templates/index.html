@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-8">
+        <ul class="list-group">
+        {% for article in articles %}
+            <li class="list-group-item">
+                <h1 class="text-success">Article #{{forloop.counter}}</h1>
+                <p class="fw-light">{{ article.body_blob}}</p>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+
+    <div class="col-4">
+        <div class="ml-4">
+            <form method="POST" action="{% url 'submit_question' %}">
+                {% csrf_token %}
+        
+                <div class="mb-3">
+                    <label for="qa-prompt" class="form-label">*Enter your query:</label>
+                    <textarea id="qa-prompt" name="prompt" class="form-control" rows="4" required></textarea>
+                </div>
+        
+                <div class="mb-3">
+                    <label for="qa-instructions" class="form-label">
+                        Enter any instructions for customizing your answer.</br>
+                        <em>For example: "Answer in Italian"</em>
+                    </label>
+                    <textarea id="qa-instructions" name="qa-instructions" class="form-control" rows="2"></textarea>
+                </div>
+        
+                <button type="submit" class="btn btn-primary">Submit</button>
+        
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

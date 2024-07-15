@@ -1,0 +1,12 @@
+
+.env
+.DS_Store
+.idea/inspectionProfiles/profiles_settings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/usa-constitution.iml
+.idea/vcs.xml
+.ipynb_checkpoints/Astra DB + Langchain-checkpoint.ipynb
+astra-db-django-app/env 
+env/
+codealike.json
